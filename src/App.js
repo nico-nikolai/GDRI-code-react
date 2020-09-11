@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import Directory from './components/DirectoryComponent';
 import './App.css';
-import { HOMEPAGE } from './shared/homepage';
+import { INDEX } from './shared/homepage';
 
 class App extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        homepage: HOMEPAGE
+        index: INDEX
       }
     }
   render() {
@@ -19,7 +19,7 @@ class App extends Component {
                   <NavbarBrand href="/">The Wizards Workshop</NavbarBrand>
               </div>
               </Navbar>
-              <Directory homepage = {this.state.homepage} />
+              <Directory index = {this.state.index} />
           </div>
       );
   }

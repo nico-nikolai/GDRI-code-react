@@ -7,11 +7,15 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "4.5.2",
+    "milonga": "^0.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-popper": "1.3.6",
     "react-scripts": "3.4.3",
-    "reactstrap": "8.5.1"
+    "reactstrap": "8.5.1",
+    "typeface": "^0.0.0",
+    "typeface-lobster": "^0.0.72",
+    "typeface-milonga": "^0.0.71"
   },
   "scripts": {
     "start": "react-scripts start",

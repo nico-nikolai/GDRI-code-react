@@ -10,13 +10,14 @@ class Directory extends Component {
     }
 
         render() {
-        const directory = this.props.homepage.map(homepage => {
+        const directory = this.props.index.map(item => {
             return (
-                <div key={homepage.id} className="col-md-5 m-1">
+                <div key={item.id} className="col-md-5 m-1">
                     <Card>
-                        <CardImg width="100%" src={homepage.image} alt={homepage.name} />
+                        <CardImg width="100%" src={item.image} alt={item.name} />
                         <CardImgOverlay>
-                            <CardTitle>{homepage.name}</CardTitle>
+                            <CardTitle>{item.name}</CardTitle>
+                            <CardTitle>{item.description}</CardTitle>
                         </CardImgOverlay>
                     </Card>
                 </div> 
