@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle, Button, CardFooter } from 'reactstrap';
+import { Card, CardImg, CardImgOverlay, CardTitle, Button, CardFooter } from 'reactstrap';
 
 class Directory extends Component {
     constructor(props) {
@@ -17,7 +17,6 @@ class Directory extends Component {
                         <CardImg width="100%" src={item.image} alt={item.name} />
                         <CardImgOverlay>
                             <CardTitle>{item.name}</CardTitle>
-                            <CardTitle>{item.description}</CardTitle>
                         </CardImgOverlay>
                         <CardFooter>
                         <Button color='secondary' block>{item.name}</Button>
