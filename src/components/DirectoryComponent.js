@@ -1,19 +1,47 @@
-import React, { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardTitle, Button, CardFooter } from 'reactstrap';
+import React from 'react';
+import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
 
-class Directory extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
 
-        };
+function RenderDirectoryItem({item, onClick}) {
+    return (
+        <Card onClick={() => onClick(item.id)}>
+            <CardImg width="100%" src={item.image} alt={item.name} />
+            <CardImgOverlay>
+                <CardTitle>{item.name}</CardTitle>
+            </CardImgOverlay>
+        </Card>
+    );
+}
+function Directory(props) {
+    const directory = props.item.map(item => {
+        return (
+            <div key={item.id} className="col-md-5 m-1">
+                <RenderDirectoryItem item={item} onClick={props.onClick} />
+            </div>
+        );
+    });
+
+        return (
+            <div className="container">
+                <div className="row">
+                    {directory}
+                </div>
+            </div>
+        );
     }
+
+
+
+
+
+
+/*class Directory extends Component {
 
         render() {
         const directory = this.props.index.map(item => {
             return (
                 <div key={item.id} className="col-md-5 m-1">
-                    <Card>
+                    <Card onClick={() => this.props.onClick(item.id)}>
                         <CardImg width="100%" src={item.image} alt={item.name} />
                         <CardImgOverlay>
                             <CardTitle>{item.name}</CardTitle>
@@ -33,6 +61,6 @@ class Directory extends Component {
             </div>
         );
     }
-}
+} */
 
 export default Directory;

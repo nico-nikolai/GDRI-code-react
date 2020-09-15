@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import Directory from './DirectoryComponent';
 import { INDEX } from '../shared/homepage';
+import HomepageInfo from './HomepageInfoComponent';
 
 class Main extends Component {
     constructor(props) {
@@ -12,8 +13,8 @@ class Main extends Component {
       }
     }
 
-    onIndexSelect(index) {
-        this.setState({selectedIndex: index});
+    onIndexSelect(indexId) {
+        this.setState({selectedIndex: indexId});
     }
 
   render() {
@@ -24,8 +25,8 @@ class Main extends Component {
                   <NavbarBrand href="/">The Wizards Workshop</NavbarBrand>
               </div>
               </Navbar>
-              <Directory index = {this.state.index} />
-              <
+              <Directory item = {this.state.index} onClick={indexId => this.onIndexSelect(indexId)} />
+              <HomepageInfo index = {this.state.index.filter(index => index.id === this.state.selectedIndex)[0]} />
           </div>
       );
   }
