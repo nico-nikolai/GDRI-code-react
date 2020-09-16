@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
 import Directory from './DirectoryComponent';
 import { INDEX } from '../shared/homepage';
 import HomepageInfo from './HomepageInfoComponent';
+import Header from './HeaderComponent';
+import Footer from './FooterComponent';
 
 class Main extends Component {
     constructor(props) {
@@ -20,13 +21,10 @@ class Main extends Component {
   render() {
       return (
           <div>
-              <Navbar dark color="secondary">
-              <div className="container">
-                  <NavbarBrand href="/">The Wizards Workshop</NavbarBrand>
-              </div>
-              </Navbar>
+              <Header />
               <Directory item = {this.state.index} onClick={indexId => this.onIndexSelect(indexId)} />
               <HomepageInfo index = {this.state.index.filter(index => index.id === this.state.selectedIndex)[0]} />
+              <Footer />
           </div>
       );
   }
