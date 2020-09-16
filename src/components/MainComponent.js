@@ -1,30 +1,37 @@
 import React, { Component } from 'react';
 import Directory from './DirectoryComponent';
-import { INDEX } from '../shared/homepage';
-import HomepageInfo from './HomepageInfoComponent';
+//import HomepageInfo from './HomepageInfoComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
+import Home from './HomeComponent';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { INDEX } from '../shared/homepage';
 
 class Main extends Component {
     constructor(props) {
       super(props);
       this.state = {
         index: INDEX,
-        selectedIndex: null
       }
     }
 
-    onIndexSelect(indexId) {
-        this.setState({selectedIndex: indexId});
-    }
+
 
   render() {
+      const HomePage = () => {
+          return (
+              <Home />
+          )
+      }
       return (
           <div>
-              <Header />
-              <Directory item = {this.state.index} onClick={indexId => this.onIndexSelect(indexId)} />
-              <HomepageInfo index = {this.state.index.filter(index => index.id === this.state.selectedIndex)[0]} />
-              <Footer />
+            <Header />
+            <Switch>
+                <Route path = '/home' component={HomePage} />
+                <Route exact path='/directory' render={() => <Directory item = {this.state.index} />} />
+                <Redirect to='/home' />
+            </Switch>
+            <Footer />
           </div>
       );
   }
